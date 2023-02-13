@@ -3,27 +3,39 @@ module Todo.View
 open Shared
 open Todo.Types
 open Fable.Core.JsInterop
-open Fable.React
-open Fable.React.Props
+open Feliz
 
-let divider = span [ Style [ MarginLeft 5; MarginRight 5 ] ] [ ]
+let divider = 
+    Html.span [
+      prop.style [
+        style.marginLeft 5
+        style.marginRight 5
+        ]
+      ]
+  
+  // span [ Style [ MarginLeft 5; MarginRight 5 ] ] [ ]
 
 let renderTodo (item: Todo) dispatch = 
     let toggleText = if item.Completed then "Actually, Not Yet!" else "Complete"
-    let dispatchToggle = OnClick (fun _ -> dispatch (ToggleCompleted item.Id))
-    let dispatchDelete = OnClick (fun _ -> dispatch (DeleteTodo item.Id))
+    let dispatchToggle = prop.onClick (fun _ -> dispatch (ToggleCompleted item.Id))
+    let dispatchDelete = prop.onClick (fun _ -> dispatch (DeleteTodo item.Id))
     
     let todoStyle = 
       match item.Completed with
-      | true ->  Style [ Color "red"; FontSize 19; Padding 5; TextDecoration "line-through"]
-      | false ->  Style [ Color "green"; FontSize 19; Padding 5 ]
+      | true ->  prop.style [ style.color "red"; style.fontSize 19; style.padding 5; style.textDecoration.lineThrough]
+      | false ->  prop.style [ style.color "green"; style.fontSize 19; style.padding 5 ]
 
-    div 
-      [ ] 
-      [ p [ todoStyle ] [ str item.Description ]
-        button [ ClassName "button is-info"; dispatchToggle ] [ str toggleText ]
-        divider
-        button [ ClassName "button is-danger"; dispatchDelete ] [ str "Delete" ] ]
+    Html.div [ 
+        prop.children [
+          Html.p [
+            
+            ]
+            // [ todoStyle ] [ str item.Description ]
+          button [ ClassName "button is-info"; dispatchToggle ] [ str toggleText ]
+          divider
+          button [ ClassName "button is-danger"; dispatchDelete ] [ str "Delete" ] 
+        ]
+        ]
 
 
 let addTodo (state: State) dispatch = 

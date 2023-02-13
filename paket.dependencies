@@ -1,26 +1,21 @@
-source https://api.nuget.org/v3/index.json
+group Shared
+    source https://api.nuget.org/v3/index.json
 
-storage:none
+    nuget FSharp.Core
 
 group Server
-  source https://api.nuget.org/v3/index.json
-  storage: none
+    source https://api.nuget.org/v3/index.json
 
-  nuget FSharp.Core
-  nuget Suave 2.5.0
-  nuget Fable.Remoting.Suave
-  nuget LiteDB.FSharp
+    nuget LiteDB.FSharp
+    nuget Suave
+    nuget Fable.Remoting.Suave
 
 group Client
-  source https://api.nuget.org/v3/index.json
+    source https://api.nuget.org/v3/index.json
 
-  nuget Fable.Core
-  nuget Fable.Elmish.Debugger
-  nuget Fable.Elmish.React
-  nuget Fable.Elmish.HMR
-  nuget Fable.Remoting.Client
-
-group Build
-  framework >= net45
-  source https://api.nuget.org/v3/index.json
-  nuget FAKE ~> 4.64.6
+    nuget Fable.Elmish.Debugger
+    nuget Fable.Elmish.React
+    nuget Fable.Elmish.HMR
+    nuget Fable.Core
+    nuget Fable.Remoting.Client
+    nuget Fable.React

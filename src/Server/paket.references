@@ -1,5 +1,6 @@
 group Server
-LiteDB.FSharp
-FSharp.Core
-Suave
-Fable.Remoting.Suave
+
+    FSharp.Core
+    LiteDB.FSharp
+    Suave
+    Fable.Remoting.Suave

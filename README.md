@@ -1,31 +1,39 @@
-# SAFE-TodoList [![Build Status](https://travis-ci.org/Zaid-Ajaj/SAFE-TodoList.svg?branch=master)](https://travis-ci.org/Zaid-Ajaj/SAFE-TodoList)
+# SAFE Template
 
-The simplest Todo app showcasing a client-server application written entirely in F# using:
- - [Fable](https://github.com/fable-compiler/Fable) for compiling F# code to javascript
- - [Elmish](https://github.com/fable-elmish/elmish) for Elm-style single page apps
- - [Suave](https://github.com/SuaveIO/suave) as the web server
- - [Fable.Remoting](https://github.com/Zaid-Ajaj/Fable.Remoting) for type-safe communication
- - [LiteDB.FSharp](https://github.com/Zaid-Ajaj/LiteDB.FSharp) for the storage. App uses the in-memory database. 
+This template can be used to generate a full-stack web application using the [SAFE Stack](https://safe-stack.github.io/). It was created using the dotnet [SAFE Template](https://safe-stack.github.io/docs/template-overview/). If you want to learn more about the template why not start with the [quick start](https://safe-stack.github.io/docs/quickstart/) guide?
 
-![](./safe-todolist.gif)
+## Install pre-requisites
 
-### Requirements
- - Dotnet 2.0+
- - Mono
- - Node
+You'll need to install the following pre-requisites in order to build SAFE applications
 
-### Running the app
-for developement mode: watching and recompiling both client and server when files change. On the client, hot-reloading is enabled by default
+* [.NET Core SDK](https://www.microsoft.com/net/download) 6.0 or higher
+* [Node 16](https://nodejs.org/en/download/)
 
-```sh
-./build.sh RunDevMode # linux
-build RunDevMode # windows
+## Starting the application
+
+Start the server:
+
+```bash
+cd src\Server\
+dotnet watch run
 ```
-Then navigate to `http://localhost:8080` where webpack-dev-server is hosting the app.
 
-for production: build and bundle client and then run the server:
-```sh
-./build.sh RunProdMode # linux
-build RunProdMode # windows
+Start the client:
+
+```bash
+npm install
+dotnet tool restore
+dotnet fable watch src/Client --run npm run start
 ```
-Then navigate to `http://localhost:8085/index.html` where Suave will serve the bundled app 
+
+Open a browser to `http://localhost:8080` to view the site.
+
+## SAFE Stack Documentation
+
+If you want to know more about the full Azure Stack and all of its components (including Azure) visit the official [SAFE documentation](https://safe-stack.github.io/docs/).
+
+You will find more documentation about the used F# components at the following places:
+
+* [Saturn](https://saturnframework.org/)
+* [Fable](https://fable.io/docs/)
+* [Elmish](https://elmish.github.io/elmish/)

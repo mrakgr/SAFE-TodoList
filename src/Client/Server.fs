@@ -22,7 +22,7 @@ let api : ITodoProtocol =
 // ==========================================
 
 let loadAllTodos() =
-    Cmd.ofAsync 
+    Cmd.OfAsync.either
       api.allTodos ()
       TodoItemsLoaded
       LoadTodoItemsFailure
@@ -41,14 +41,14 @@ let deleteTodo id =
     let errorCallback (_: exn) = 
         DeleteTodoFailure DeleteNotSuccesful
     
-    Cmd.ofAsync
+    Cmd.OfAsync.either
       api.deleteTodo id
       // delete CALL => reload all items
       successCallback
       errorCallback
 
 let addTodo text = 
-    Cmd.ofAsync
+    Cmd.OfAsync.either
       api.addTodo (Description(text))
       (function 
         | Some addedTodo -> TodoAdded addedTodo
@@ -57,7 +57,7 @@ let addTodo text =
 
 
 let toggleCompleted id = 
-    Cmd.ofAsync
+    Cmd.OfAsync.either
       api.toggleCompleted id
       // success callback
       (function 

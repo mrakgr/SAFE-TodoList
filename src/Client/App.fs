@@ -19,7 +19,7 @@ Program.mkProgram
 #if DEBUG
 |> Program.withConsoleTrace
 #endif
-|> Program.withReact "elmish-app"
+|> Program.withReactBatched "elmish-app"
 #if DEBUG
 |> Program.withDebugger
 #endif
