@@ -19,10 +19,6 @@ for developement mode: watching and recompiling both client and server when file
 ```sh
 dotnet run
 ```
-Then navigate to `http://localhost:8080` where webpack-dev-server is hosting the app.
 
-for production: build and bundle client and then run the server:
-```sh
-dotnet run Bundle
-```
-Then navigate to `http://localhost:8085/index.html` where Suave will serve the bundled app 
+Then navigate to `http://localhost:8080` where Vite dev server is hosting the app.
+

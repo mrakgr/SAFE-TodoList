@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "start": "vite",
+        "start": "vite --port 8080",
         "build": "vite build"
     },
     "dependencies": {
