@@ -5,14 +5,14 @@ open Shared
 open Fable.Remoting.Server
 open Fable.Remoting.Suave
 
-
-let clientPath = Path.Combine("..", "Client", "dist") |> Path.GetFullPath 
-let port = 8085us
+// Is this right? The print statements do no work here so I can't check.
+let clientPath = Path.Combine("..", "..", "public") |> Path.GetFullPath 
+let port = 5000us
 
 let config =
   { defaultConfig with 
       homeFolder = Some clientPath
-      bindings = [ HttpBinding.create HTTP (IPAddress.Parse "0.0.0.0") port ] }
+      bindings = [ HttpBinding.create HTTP IPAddress.Loopback port ] }
 
 let webApi = 
   let todoProtocol = WebApp.createUsingInMemoryStorage()

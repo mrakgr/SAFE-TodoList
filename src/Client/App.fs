@@ -12,9 +12,9 @@ open Elmish.HMR
 // - View.render
 // ====================================================
 
-Program.mkProgram 
-  State.initialState 
-  State.update 
+Program.mkProgram
+  State.initialState
+  State.update
   View.render
 #if DEBUG
 |> Program.withConsoleTrace

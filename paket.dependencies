@@ -7,7 +7,7 @@ group Server
     source https://api.nuget.org/v3/index.json
 
     nuget LiteDB.FSharp
-    nuget Suave
+    nuget Suave 2.5.6 // Fable.Remoting.Suave meeds pinning to an earlier version of Suave in order to work.
     nuget Fable.Remoting.Suave
 
 group Client
@@ -19,3 +19,10 @@ group Client
     nuget Fable.Core
     nuget Fable.Remoting.Client
     nuget Fable.React
+
+group Build
+    source https://api.nuget.org/v3/index.json
+
+    nuget Fake.Core.Target
+    nuget Fake.IO.FileSystem
+    nuget Farmer
